@@ -56,7 +56,7 @@ public class PlayerYeet : MonoBehaviour
             // set player position to mouse position
             transform.position = mousePos; 
         }
-        */
+        
 
         // iterate the time counter to count the frames 
         time_counter++;
@@ -70,6 +70,7 @@ public class PlayerYeet : MonoBehaviour
                 WinText.SetActive(true);
             }
         }
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -79,5 +80,21 @@ public class PlayerYeet : MonoBehaviour
         Destroy(gameObject);
         LoseText.SetActive(true);
         win_game = false;
+    }
+
+    private void FixedUpdate()
+    {
+        // iterate the time counter to count the frames 
+        time_counter++;
+
+        // if the player didn't get destroyed & survives all the astroids, they get the win
+        if (win_game == true)
+        {
+            // Once the time is up, active the win text 
+            if (time_counter == win_time)
+            {
+                WinText.SetActive(true);
+            }
+        }
     }
 }
