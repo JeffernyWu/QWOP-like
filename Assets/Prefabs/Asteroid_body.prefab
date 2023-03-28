@@ -181,9 +181,10 @@ GameObject:
   - component: {fileID: 1134237717619007278}
   - component: {fileID: 1134237717619007279}
   - component: {fileID: 1134237717619007276}
+  - component: {fileID: 3170478839599267169}
   m_Layer: 0
   m_Name: Asteroid_body
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,6 +333,20 @@ SliderJoint2D:
   m_TranslationLimits:
     m_LowerTranslation: 0
     m_UpperTranslation: 0
+--- !u!114 &3170478839599267169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134237717619007277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cccb47dbf94e1d48aabc33224a9a88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Indicator: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!1 &1134237717838780663
 GameObject:
   m_ObjectHideFlags: 0

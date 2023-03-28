@@ -9,7 +9,7 @@ public class PlayerYeet : MonoBehaviour
     public GameObject WinText;
     public GameObject LoseText;
     bool win_game = true;
-    public int win_time = 10000;
+    public int win_time = 100;
     float time_counter = 0;
 
     // Start is called before the first frame update
@@ -56,20 +56,6 @@ public class PlayerYeet : MonoBehaviour
             // set player position to mouse position
             transform.position = mousePos; 
         }
-        
-
-        // iterate the time counter to count the frames 
-        time_counter++;
-
-        // if the player didn't get destroyed & survives all the astroids, they get the win
-        if (win_game == true)
-        {
-            // Once the time is up, active the win text 
-            if (time_counter == win_time)
-            {
-                WinText.SetActive(true);
-            }
-        }
         */
     }
 
@@ -77,9 +63,12 @@ public class PlayerYeet : MonoBehaviour
     {
         // if player collides with anything, the turso gets destroyed & text is active stating
          // that the player lost 
-        Destroy(gameObject);
-        LoseText.SetActive(true);
-        win_game = false;
+        if (other.gameObject.tag == "Asteroid")
+        {
+            Destroy(gameObject);
+            LoseText.SetActive(true);
+            win_game = false;
+        }
     }
 
     private void FixedUpdate()
@@ -92,7 +81,13 @@ public class PlayerYeet : MonoBehaviour
         {
             // Once the time is up, active the win text 
             if (time_counter == win_time)
-            {
+            {                
+                // destory all the asteroids after you win 
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Asteroid");
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    Destroy(enemies[i]);
+                }
                 WinText.SetActive(true);
             }
         }
